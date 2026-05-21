@@ -1,0 +1,23 @@
+# LLM/Agent libraries (used in app/experiments/llm_comparison/)
+openai>=1.0.0
+agents
+litellm
+openai-agents>=0.6.0
+langchain
+phidata
+azure-ai-agents
+google-generativeai
+
+# Evaluation metrics (used in app/experiments/evaluation/)
+easse @ git+https://github.com/feralvam/easse.git
+bert-score
+textstat
+nltk
+lens-metric
+
+# Analysis/Visualization (used in app/experiments/analysis/)
+pandas
+numpy
+scipy
+matplotlib
+seaborn

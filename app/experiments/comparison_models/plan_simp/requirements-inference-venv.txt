@@ -1,0 +1,38 @@
+# =============================================================================
+# Plan-Simp inference-only virtual environment
+# =============================================================================
+# Based on requirements.txt in this folder. Use this venv ONLY to run
+# run_plan_simp_pipeline / vendored generate.py with matching HF + PyTorch
+# versions (avoids ad-hoc patches to custom_roberta, bart, etc.).
+#
+# Python: prefer 3.10 or 3.11. On Python 3.12+ use instead:
+#   requirements-inference-venv-py312.txt
+# (torch==1.13.1 and numpy==1.19.x do not install on 3.12.)
+#
+# Setup (from repo root LLM-simplification-PE):
+#   py -3.10 -m venv .venv-plan-simp
+#   .venv-plan-simp\Scripts\activate
+#   python -m pip install -U pip setuptools wheel
+#   pip install -r app/experiments/comparison_models/plan_simp/requirements-inference-venv.txt
+#
+# Run pipeline (repo root, venv active):
+#   set PYTHONPATH=%CD%          (cmd)
+#   $env:PYTHONPATH=(Get-Location).Path   (PowerShell)
+#   export PYTHONPATH="$(pwd)"  (Git Bash)
+#   python -m app.experiments.comparison_models.plan_simp.run_plan_simp_pipeline
+#   python -m app.experiments.comparison_models.plan_simp.run_plan_simp_pipeline --skip-encode
+#
+# Then use your main environment for DB:
+#   python -m app.experiments.comparison_models.plan_simp.load_plan_simp_results_to_db
+# =============================================================================
+
+fire==0.3.1
+nltk==3.4.3
+numpy==1.19.4
+pandas==1.3.0
+sentence-transformers==2.2.2
+transformers==4.29.1
+pytorch-lightning==1.9.5
+torch==1.13.1
+scikit-learn>=1.0.0
+tqdm>=4.64.0
